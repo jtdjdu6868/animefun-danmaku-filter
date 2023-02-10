@@ -2,7 +2,7 @@
 // @name         animefun danmaku filter
 // @name:zh-TW   動畫瘋彈幕過濾器
 // @namespace    https://github.com/jtdjdu6868
-// @version      1.0.0
+// @version      1.0.1
 // @description        advanced danmaku filter for animefun, allows you to filter unlimited black list and filter out simplified chinese
 // @description:zh-TW  增強型的彈幕過濾器，可自訂無上限列表與過濾簡體字
 // @author       jtdjdu6868
@@ -67,6 +67,8 @@
                border-radius: 4px;
                font-size: 13px;
                margin-bottom: 8px;
+               background: var(--card-history-bg);
+               overflow: auto;
            }
            #newadvfkeyword
            {
@@ -76,14 +78,38 @@
            {
                padding: 3px 6px;
            }
+           .keyword-regex::after
+           {
+               content: "[regex]";
+               color: red;
+               font-size: 10px;
+               vertical-align: bottom;
+               margin-left: 2px;
+           }
+           .keyword-regex:checked::after
+           {
+               color: pink;
+           }
+           .adv-filter-keyword-optionlabel
+           {
+               color: var(--text-default-color);
+           }
            .adv-filter-keyword-optionlabel:checked
            {
                background: linear-gradient(0, var(--anime-primary-color), var(--anime-primary-color));
+           }
+           .adv-filter-input
+           {
+               background: var(--input-bg);
            }
            .adv-filter-input[type="number"]
            {
                width: 50px;
                margin-left: auto;
+           }
+           select.adv-filter-input option
+           {
+               background: var(--anime-background-base);
            }
            .advf-operation-buttons .advf-bluebtn
            {
@@ -291,16 +317,19 @@
     }).append($("<h4></h4>", {
         "class": "ani-setting-title",
         text: "進階過濾器設定"
-    })).append($("<div></div>", {
+    })).append(createOption(function() {config.enable_filter_custom = $(this).is(":checked")}, "過濾關鍵字", config.enable_filter_custom)).append($("<div></div>", {
         "class": "ani-setting-item"
     }).append($("<div></div>", {
         "class": "adv-filter-keyword-header"
     }).append($("<input />", {
-        "class": "ani-input",
+        "class": "ani-input adv-filter-input",
         type: "text",
         id: "newadvfkeyword",
         placeholder: "請輸入想要過濾的字詞，再按下新增"
-    })).append($("<a></a>", {
+    })).append($("<select></select>", {
+        "class": "ani-input adv-filter-input",
+        "id": "newkeyword-type"
+    }).append($("<option value=\"text\">文字</option><option value=\"regex\">regex</option>"))).append($("<a></a>", {
         href: "#addadvfkeyword",
         text: "新增",
         "class": "bluebtn advf-bluebtn",
@@ -313,7 +342,7 @@
                 return false;
             }
             $("#newadvfkeyword").val("");
-            const type = "text";
+            const type = $("#newkeyword-type").val();
             if(addKeywords([{
                 keyword: newkeyword,
                 type: type
