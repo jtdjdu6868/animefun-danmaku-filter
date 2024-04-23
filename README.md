@@ -9,9 +9,9 @@ GitHub repo: [jtdjdu6868/animefun-danmaku-filter](https://github.com/jtdjdu6868/
 
 # 相關文章
 ## 技術
-[https://forum.gamer.com.tw/Co.php?bsn=60076&sn=90215368](https://forum.gamer.com.tw/Co.php?bsn=60076&sn=90215368)
-## 發佈
 [https://forum.gamer.com.tw/Co.php?bsn=60076&sn=90134988](https://forum.gamer.com.tw/Co.php?bsn=60076&sn=90134988)
+## 發佈
+[https://forum.gamer.com.tw/Co.php?bsn=60076&sn=90215368](https://forum.gamer.com.tw/Co.php?bsn=60076&sn=90215368)
 
 # 問題回報
 開issues或是去發布文章頁面留言（討論串已被清掉，無法回文）
