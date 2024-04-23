@@ -2,7 +2,7 @@
 // @name         animefun danmaku filter
 // @name:zh-TW   動畫瘋彈幕過濾器
 // @namespace    https://github.com/jtdjdu6868
-// @version      1.1.0
+// @version      1.1.1
 // @description        advanced danmaku filter for animefun, allows you to filter unlimited black list and filter out simplified chinese
 // @description:zh-TW  增強型的彈幕過濾器，可自訂無上限列表與過濾簡體字
 // @author       jtdjdu6868
@@ -462,7 +462,8 @@
         console.log("fetch inject");
         window.fetch = async function(url, options) {
             const response = await originalFetch(url, options);
-            if(url.toString().includes("/ajax/danmuGet.php") || url.url.toString().includes("/ajax/danmuGet.php"))
+            // url.url for kaspersky override version of fetch
+            if(url.toString().includes("/ajax/danmuGet.php") || url?.url?.includes?.("/ajax/danmuGet.php"))
             {
                 let danmuJson = await response.json();
                 console.log("capture danmu");
