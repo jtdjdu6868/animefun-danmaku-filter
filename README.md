@@ -4,6 +4,7 @@
 進階過濾器，可以過濾動畫瘋中的簡體字彈幕或是自訂無上限列表，可匯出匯入關鍵字
 
 # 發佈
+GitHub repo: [jtdjdu6868/animefun-danmaku-filter](https://github.com/jtdjdu6868/animefun-danmaku-filter)  
 同時發佈於[Greasy Fork](https://greasyfork.org/zh-TW/scripts/459506-animefun-danmaku-filter)
 
 # 相關文章
